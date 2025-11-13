@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد الصور بالذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <span class="sparkle">✨</span>
+                <h1>مولد الصور بالذكاء الاصطناعي</h1>
+                <span class="sparkle">✨</span>
+            </div>
+            <p class="subtitle">حوّل أفكارك إلى صور مذهلة في ثوانٍ ✨</p>
+        </header>
+
+        <!-- Input Section -->
+        <div class="card">
+            <div class="form-group">
+                <label class="label">
+                    <span class="icon">✨</span>
+                    وصف الصورة
+                </label>
+                <textarea 
+                    id="prompt" 
+                    class="textarea"
+                    placeholder="مثال: منظر طبيعي خيالي عند غروب الشمس مع جبال ثلجية وبحيرة زرقاء صافية..."
+                    rows="4"
+                ></textarea>
+            </div>
+
+            <!-- Enhance Prompt Toggle -->
+            <div class="enhance-box">
+                <div class="enhance-content">
+                    <span class="icon">🪄</span>
+                    <div>
+                        <label for="enhance" class="enhance-label">تحسين الوصف تلقائياً</label>
+                        <p class="enhance-hint">اجعل الذكاء الاصطناعي يحسن وصفك للحصول على نتائج أفضل</p>
+                    </div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="enhance">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Aspect Ratio -->
+            <div class="form-group">
+                <label class="label">
+                    <span class="icon">🖼️</span>
+                    نسبة الأبعاد
+                </label>
+                <div class="radio-grid">
+                    <label class="radio-card">
+                        <input type="radio" name="aspectRatio" value="youtube" checked>
+                        <span>يوتيوب (16:9)</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="aspectRatio" value="tiktok">
+                        <span>تيك توك (9:16)</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="aspectRatio" value="square">
+                        <span>مربع (1:1)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Style Selection -->
+            <div class="form-group">
+                <label class="label">
+                    <span class="icon">🎨</span>
+                    النمط الفني
+                </label>
+                <div class="radio-grid style-grid">
+                    <label class="radio-card">
+                        <input type="radio" name="style" value="default" checked>
+                        <span>عادي</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="style" value="anime">
+                        <span>أنمي</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="style" value="realistic">
+                        <span>واقعي</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="style" value="artistic">
+                        <span>فني</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="style" value="cartoon">
+                        <span>كرتوني</span>
+                    </label>
+                </div>
+            </div>
+
+            <button id="generateBtn" class="btn btn-primary">
+                <span id="btnText">
+                    <span class="icon">✨</span>
+                    إنشاء الصورة الآن
+                </span>
+                <span id="btnLoader" class="loader" style="display: none;">
+                    <span class="spinner"></span>
+                    جاري الإنشاء... يرجى الانتظار
+                </span>
+            </button>
+        </div>
+
+        <!-- Result Section -->
+        <div id="resultSection" class="card" style="display: none;">
+            <h2 class="section-title">
+                <span class="icon">🖼️</span>
+                الصورة المولدة
+            </h2>
+            <div class="image-container">
+                <img id="generatedImage" src="" alt="Generated">
+            </div>
+            <button id="downloadBtn" class="btn btn-success">
+                <span class="icon">⬇️</span>
+                تحميل الصورة بجودة عالية
+            </button>
+        </div>
+
+        <!-- History Section -->
+        <div id="historySection" class="card" style="display: none;">
+            <div class="history-header">
+                <h2 class="section-title">
+                    <span class="icon">🖼️</span>
+                    معرض الصور (<span id="historyCount">0</span>)
+                </h2>
+                <button id="clearHistoryBtn" class="btn btn-danger">
+                    <span class="icon">🗑️</span>
+                    مسح الكل
+                </button>
+            </div>
+            <div id="historyGrid" class="history-grid"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="developer-name">تم التطوير بواسطة محمود بطش</p>
+            <p class="copyright">مولد صور بالذكاء الاصطناعي - جميع الحقوق محفوظة © 2025</p>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
